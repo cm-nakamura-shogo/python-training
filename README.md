@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# python training
-=======
 # python-training
 
 Pythonトレーニング用のレポジトリです。
@@ -33,4 +30,3 @@ Pythonトレーニング用のレポジトリです。
 - day15 : CVを処理する機械学習システムのバックエンドの構築            
 - day16 : 上記のシステムをAWSにデプロイする検討                       
 - day17 : 上記のシステムをGoogle Cloudにデプロイする検討              
->>>>>>> master-from-other-repos
