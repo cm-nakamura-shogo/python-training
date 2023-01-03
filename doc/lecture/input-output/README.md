@@ -22,6 +22,7 @@ argparseはコマンドライン引数をパースする標準ライブラリ。
 まずは以下を読む。
 
 - [【python】コマンドライン引数を扱うargparseを丁寧に - gotutiyan’s blog](https://gotutiyan.hatenablog.com/entry/2020/09/28/003910)
+- [ArgumentParserの使い方を簡単にまとめた - Qiita](https://qiita.com/kzkadc/items/e4fc7bc9c003de1eb6d0)
 
 以下例示と補足。
 
@@ -30,6 +31,7 @@ import argparse
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    parser.add_argument('--flag', action='store_true') # フラグのように使用する場合
     parser.add_argument('--in-dir', required=True, default=None, type=str, help='入力フォルダのパス')
     args = parser.parse_args()
 
