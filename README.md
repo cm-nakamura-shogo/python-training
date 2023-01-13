@@ -9,12 +9,13 @@ Pythonトレーニング用のレポジトリです。
 - [day00 : 事前準備                      ](./doc/lecture/prepare/README.md)
 - [day01 : 標準データ型                  ](./doc/lecture/std-data-type/README.md)
 - [day02 : プログラム入出力・ファイル操作](./doc/lecture/input-output/README.md)
-- day03 : ループと条件分岐    
+- [day03 : ループと条件分岐              ](./doc/lecture/iterator-generator-branch/README.md)
+- day04 : 非同期実行
 - day05 : NumPy               
 - day06 : Pandas              
-- day04 : デバッグとロギング  
-- day07 : 型ヒントとvalidation
-- day08 : pytest              
+- day07 : デバッグとロギング  
+- day08 : 型ヒントとvalidation
+- day09 : pytest              
 
 ### 応用編
 
