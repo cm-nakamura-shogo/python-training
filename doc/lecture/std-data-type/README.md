@@ -8,6 +8,7 @@
 - [2. ミュータブルとコピー](./mutable-and-copy.md)
 - [3. str型とbyte型       ](./str-and-bytes.md)
 - [4. datetime型          ](./datetime.md)
+- 5. collections         
 
 ## 演習
 

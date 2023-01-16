@@ -53,8 +53,6 @@
     - Python開発の基本。
   - [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring)
     - Pythonのdocstringを自動生成できる。
-  - [isort](https://marketplace.visualstudio.com/items?itemName=ms-python.isort)
-    - importをPEP8準拠にしてくれる拡張機能
 
 - Markdown
   - [Markdown PDF](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf)
@@ -82,6 +80,13 @@
     - 自動整形ツール。
     - あまりメリットをまだ感じられていないが、チーム開発では嬉しいらしい。
     - TS界隈の開発者は使ってるのをよく見るが、Pythonで使ってる人をあまり見たことがない。
+      - これはおそらくPython拡張機能が含んでいるためと考えられる。
+  - [isort](https://marketplace.visualstudio.com/items?itemName=ms-python.isort)
+    - importをPEP8準拠にしてくれる拡張機能
+  - [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter)
+    - 結構厳しめのPythonフォーマッタ
+    - 設定方法
+      - [VSCode拡張機能のBlack Formatterとisortを用いたPythonのコードフォーマット - nujust's blog](https://nujust.hatenablog.com/entry/2022/07/24/114715)
 
 - リモート系
   - [Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)

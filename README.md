@@ -10,6 +10,7 @@ Pythonトレーニング用のレポジトリです。
 - [day01 : 標準データ型                  ](./doc/lecture/std-data-type/README.md)
 - [day02 : プログラム入出力・ファイル操作](./doc/lecture/input-output/README.md)
 - [day03 : ループと条件分岐              ](./doc/lecture/iterator-generator-branch/README.md)
+- デコレータとコンテキストマネージャ
 - day04 : 非同期実行
 - day05 : NumPy               
 - day06 : Pandas              
@@ -30,4 +31,5 @@ Pythonトレーニング用のレポジトリです。
 - day14 : NLPを処理する機械学習システムのバックエンドの構築           
 - day15 : CVを処理する機械学習システムのバックエンドの構築            
 - day16 : 上記のシステムをAWSにデプロイする検討                       
+  - AppRunnerは良い選択肢かも（ゆたにいさんが先生）
 - day17 : 上記のシステムをGoogle Cloudにデプロイする検討              

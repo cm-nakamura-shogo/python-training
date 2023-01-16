@@ -194,6 +194,10 @@ print(type(sample_str_encdec))
 
 ## bytes型について
 
+### 変更可能性
+
+bytes型もstr型と同様にimmutableである。しかし、bytesにはmutableなバージョンであるbytearrayがある。
+
 ### pack（数値をbytes型にする）
 
 bytes型をそのまま使うシーンはそれほど多くないのですが、
