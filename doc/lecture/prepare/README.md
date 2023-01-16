@@ -1,4 +1,4 @@
-# 0. 事前準備
+# 事前準備
 
 本ページの内容は初回の開催前に各自で準備をお願いする想定です。（必要に応じてフォロー）
 
@@ -143,6 +143,13 @@
 |:---|:---|
 |Alt + 上下|行移動|
 
+## Pythonの対話型シェルについて
+
+昨今はipythonの他にも、bpythonやptpythonなどがあるらしい。
+
+- [#python の動作確認に まだipython なんか使ってるの？これからは bpython でしょ！ ( コンソール比較 ) - Qiita](https://qiita.com/YumaInaura/items/1707b708c608e9f9a488)
+
+bpythonはWindows + poetryでうまく動かせなかったので、みんなも試してみてほしい。
 
 ## 参考書
 
