@@ -14,7 +14,7 @@
 
 ## VSCode
 
-### プラグイン
+### VSCodeプラグイン
 
 - 基本
   - [Japanese Language Pack](https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ja)
@@ -106,7 +106,7 @@
 - VSCodeのUser Snippetを活用しよう！
   - https://qiita.com/282Haniwa/items/82828c6a566e3e7e047d
 
-### ショートカット
+### VSCodeショートカット
 
 意外と網羅できてないショートカットを自分なりに整理する。
 
@@ -147,6 +147,10 @@
 |キー|内容|
 |:---|:---|
 |Alt + 上下|行移動|
+
+## VSCodeのファイル比較
+
+実はファイル２つを選択して右クリックで可能。
 
 ## Pythonの対話型シェルについて
 
