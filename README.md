@@ -11,7 +11,8 @@ Pythonトレーニング用のレポジトリです。
 - [day02 : プログラム入出力・ファイル操作](./doc/lecture/input-output/README.md)
 - [day03 : ループと条件分岐              ](./doc/lecture/iterator-generator-branch/README.md)
 - デコレータとコンテキストマネージャ
-- day04 : 非同期実行
+  - [Pythonの関数の引数と戻り値のログ出力をデコレータで部品化する（Google Cloud Functions） | DevelopersIO](https://dev.classmethod.jp/articles/python-decorator-log-gcf/)
+- day04 : 非同期実行(threadとかasync)
 - day05 : NumPy               
 - day06 : Pandas              
 - day07 : デバッグとロギング  
