@@ -24,7 +24,7 @@ def product(sample_dict, a):
         if isinstance(v, dict):
             ret = product(v, a)
             output_dict = {**output_dict, k: ret}
-        
+
         else:
             if isinstance(v, int) or isinstance(v, float):
                 output_dict = {**output_dict, k: v*a}
