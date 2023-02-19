@@ -81,6 +81,34 @@ for v in sample_dict.values():
     300
     
 
+### rangeで固定回数回す
+
+
+```python
+for i in range(5):
+    print(i)
+```
+
+    0
+    1
+    2
+    3
+    4
+    
+
+start, stopやstepを指定することも可能
+
+
+```python
+for i in range(5,10,2):
+    print(i)
+```
+
+    5
+    7
+    9
+    
+
 ### enumerateで要素番号とともに回す
 
 enumerateを使うことで要素番号が得られる。
@@ -114,7 +142,296 @@ for v1, v2 in zip(sample_list1, sample_list2):
     30 300
     
 
+## 基本の条件分岐
+
+### if- elif - else
+
+例えば典型的には以下のように書ける。
+
 
 ```python
+A = 90
+
+if A < 10:
+    print("A < 10")
+elif A < 100:
+    print("10 <= A < 100")
+else:
+    print("100 <= A")
+
 
 ```
+
+    10 <= A < 100
+    
+
+elifは実は存在しなくてもかならずelseとifで表現は可能。
+
+
+```python
+A = 90
+
+if A < 10:
+    print("A < 10")
+else:
+    if A < 100:
+        print("10 <= A < 100")
+    else:
+        print("100 <= A")
+```
+
+    10 <= A < 100
+    
+
+コードを見直す際は、elseが無い場合などに無くて本当によいか、などをチェックした方が良い。
+
+### 浮動小数のif文
+
+浮動小数は条件分岐に書くときに注意が必要（特に`==`では不成立となることが多い）。
+
+
+```python
+A = 0.2 + 0.4 + 0.3 + 0.1
+print(f"{A=:.5f}")
+
+if A == 1:
+    print("A is 1")
+else:
+    print("A is not 1")
+```
+
+    A=1.00000
+    A is not 1
+    
+
+これは浮動小数には丸め誤差（偶数丸め等）が発生するためである。
+
+
+```python
+print(f"{A=:.20f}")
+print(f"{1=:.20f}")
+```
+
+    A=0.99999999999999988898
+    1=1.00000000000000000000
+    
+
+浮動小数は無限個のパターンの数値を取りうるので、有限な情報（32bit）などで表現するために必ず丸め誤差が生じる。
+
+それ以外に、仮数部や指数部など浮動小数のモデルをもっと知りたい方は以下などを参照。
+
+- [数値の表現](http://ss.sguc.ac.jp/~rider/basic/float.html)
+
+いわゆる金融系などこういった演算を正確に行いたい場合は、Decimalを使用する必要がある。
+
+Decimalにより各演算は10進数に丸められる。
+
+
+```python
+from decimal import Decimal
+
+A = Decimal("0.1") + Decimal("0.5") + Decimal("0.3") + Decimal("0.1")
+print(A)
+
+if A == Decimal("1"):
+    print("A is 1")
+else:
+    print("A is not 1")
+```
+
+    1.0
+    A is 1
+    
+
+## for - else
+
+forにelseが使えるという情報を観測したため念のため書いておく（まれに観察される）。
+
+ループをbreakで抜けたか、全部走査し終わって終了したかで処理を分ける際に使用できる。
+
+
+```python
+arr = [1,2,3,4,5,6,7,8,9]
+
+for i in arr:
+    if i==10:
+        find_flag = 1
+        break
+else:
+    find_flag = 0
+
+print(f"{find_flag=:}")
+
+```
+
+    find_flag=0
+    
+
+## リスト内包表記
+
+普通のリスト内包表記から
+
+
+```python
+sample_list = [0,1,2,3,4,5,6]
+sample_list_2 = [ i*2 for i in sample_list] # 各要素を倍にする
+sample_list_2
+```
+
+
+
+
+    [0, 2, 4, 6, 8, 10, 12]
+
+
+
+if/elseとの組み合わせで条件によって結果を変える（配列サイズ不変）。
+
+
+```python
+sample_list = [0,1,2,3,4,5,6]
+sample_list_3 = [ i*2 if i%2==1 else -1 for i in sample_list] # 奇数は倍に、偶数は-1にする
+sample_list_3
+```
+
+
+
+
+    [-1, 2, -1, 6, -1, 10, -1]
+
+
+
+ここまでの書き方は要素数は変わらないものであったが、要素数を変える抽出が以下のように記述できる。
+
+末尾にif文があることが特徴。英文表記に近いのかも？
+
+
+```python
+sample_list = [0,1,2,3,4,5,6]
+sample_list_4 = [ i*2 for i in sample_list if i%2==1] # 奇数のみ倍にして抽出する
+sample_list_4
+```
+
+
+
+
+    [2, 6, 10]
+
+
+
+一般的に普通のforよりもリスト内包表記の方が高速と言われるが、可読性とのトレードオフともいえる。（たとえば複数階層のリスト内包表記は理解しづらい）
+
+## itertools
+
+WIP
+
+## iterator
+
+iteratorとはイテレータプロトコルをもつコンテナのこと。`__next__`と`__iter__`というメソッドを持てはiteratorと言ってよい。
+
+自作のiteratorの例をエキPyから持ってきた。
+
+
+```python
+class CountDown:
+    def __init__(self, step):
+        self.step = step
+
+    def __next__(self):
+        if self.step <= 0:
+            raise StopIteration
+        self.step -= 1
+        return self.step
+
+    def __iter__(self):
+        return self
+```
+
+iteratorはこのようにfor文でループさせることができる。ループを抜けるタイミングは、`StopIteration`という例外が投げられた時。
+
+
+```python
+count_down = CountDown(3)
+for i in count_down:
+    print(i)
+```
+
+    2
+    1
+    0
+    
+
+もう一度繰り返すことはできない。
+
+
+```python
+for i in count_down:
+    print(i)
+```
+
+繰り返し使用したい場合は、iteratorと状態を分割する。
+
+
+```python
+class CountState:
+    def __init__(self, step):
+        self.step = step
+
+    def __next__(self):
+        if self.step <= 0:
+            raise StopIteration
+        self.step -= 1
+        return self.step
+
+class CountDown:
+    def __init__(self, step):
+        self.step = step
+
+    def __iter__(self):
+        return CountState(self.step)
+```
+
+
+```python
+count_down = CountDown(3)
+for i in count_down:
+    print(i)
+for i in count_down:
+    print(i)
+```
+
+    2
+    1
+    0
+    2
+    1
+    0
+    
+
+
+```python
+type(enumerate(range(100)))
+```
+
+
+
+
+    enumerate
+
+
+
+## generator
+
+WIP
+
+## lambda式
+
+WIP
+
+## map, filter, reduce
+
+WIP
+
+- [Pythonのreduceと内包表記／ジェネレータ式を比較してみた | DevelopersIO](https://dev.classmethod.jp/articles/python-reduce-vs-generator)
+
+
