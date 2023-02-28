@@ -1,4 +1,4 @@
-<a href="introduction.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+<a href="https://colab.research.google.com/github/cm-nakamura-shogo/python-training/blob/master/doc/lecture/iterator-generator/README.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 # iteratorとgenerator
 
@@ -424,7 +424,7 @@ except Exception as e:
 
 itertoolsは基本的にはイテレータを返す。実例を見ていく。
 
-accumulate : 累積和
+### accumulate : 累積和
 
 
 ```python
@@ -436,7 +436,7 @@ print([*itertools.accumulate([1,2,3,4,5])])
     [1, 3, 6, 10, 15]
     
 
-chain, chain.from_iterable : 複数のiterableをつなげる。
+### chain, chain.from_iterable : 複数のiterableをつなげる。
 
 
 ```python
@@ -454,7 +454,7 @@ print([*itertools.chain.from_iterable([[1,2,3],[4,5,6]])])
     [1, 2, 3, 4, 5, 6]
     
 
-compress : フラグでselectする。
+### compress : フラグでselectする。
 
 
 ```python
@@ -464,7 +464,7 @@ print([*itertools.compress([1,2,3,4,5], [1,0,0,1,1])])
     [1, 4, 5]
     
 
-takewhile, dropwhile : 要素を先頭から辿り、要素が偽になるまで、と偽になった後をそれぞれ抽出する。
+### takewhile, dropwhile : 要素を先頭から辿り、要素が偽になるまで、と偽になった後をそれぞれ抽出する。
 
 
 ```python
@@ -482,7 +482,7 @@ print([*itertools.dropwhile(lambda x: x!=10, [1,2,3,10,4,3,2,10])])
     [10, 4, 3, 2, 10]
     
 
-filterfalse : 偽になる要素を抽出
+### filterfalse : 偽になる要素を抽出
 
 
 ```python
@@ -492,7 +492,7 @@ print([*itertools.filterfalse(lambda x: x%2==0, [1,2,3,4,5])])
     [1, 3, 5]
     
 
-groupby : 連続した同一要素をグループ化する。
+### groupby : 連続した同一要素をグループ化する。
 
 
 ```python
@@ -517,14 +517,14 @@ print([*itertools.islice([1,2,3,4,5], 1, 4, 2)])
     [2, 4]
     
 
-pairwise : 先頭から2個ずつ取ってくる。これは3.10以降でしか使えない
+### pairwise : 先頭から2個ずつ取ってくる。これは3.10以降でしか使えない
 
 
 ```python
 # print([*itertools.pairwise([1,2,3,4,5,6])])
 ```
 
-starmap : ある関数と引数の組で一括処理する。
+### starmap : ある関数と引数の組で一括処理する。
 
 
 ```python
@@ -534,7 +534,7 @@ print([*itertools.starmap(lambda x,y: x+y, [[1,2],[2,3],[3,4]])])
     [3, 5, 7]
     
 
-tee : iterableをn個のiteratorで生成する。複数回iteratorとして使いたいものがある場合に有効。
+### tee : iterableをn個のiteratorで生成する。複数回iteratorとして使いたいものがある場合に有効。
 
 通常はiteratorは１回iterationすると再度iterationできない。
 
@@ -562,7 +562,7 @@ for it in itertools.tee(itertools.accumulate([1,2,3,4,5]), 3):
     [1, 3, 6, 10, 15]
     
 
-zip_longest : 長さの違うzipを長い方に併せてiterationする。短い側を何で埋めるかは指定可能。
+### zip_longest : 長さの違うzipを長い方に併せてiterationする。短い側を何で埋めるかは指定可能。
 
 
 ```python
@@ -598,7 +598,7 @@ print([*iters])
     [1, 3, 6, 10, 15, 21]
     
 
-product : 総当たり
+### product : 総当たり
 
 
 ```python
@@ -608,7 +608,7 @@ print([*itertools.product([1,2,3], [4,5,6])])
     [(1, 4), (1, 5), (1, 6), (2, 4), (2, 5), (2, 6), (3, 4), (3, 5), (3, 6)]
     
 
-permutations : 順列
+### permutations : 順列
 
 
 ```python
@@ -618,7 +618,7 @@ print([*itertools.permutations([1,2,3,4], 3)])
     [(1, 2, 3), (1, 2, 4), (1, 3, 2), (1, 3, 4), (1, 4, 2), (1, 4, 3), (2, 1, 3), (2, 1, 4), (2, 3, 1), (2, 3, 4), (2, 4, 1), (2, 4, 3), (3, 1, 2), (3, 1, 4), (3, 2, 1), (3, 2, 4), (3, 4, 1), (3, 4, 2), (4, 1, 2), (4, 1, 3), (4, 2, 1), (4, 2, 3), (4, 3, 1), (4, 3, 2)]
     
 
-combination : 組み合わせ
+### combination : 組み合わせ
 
 
 ```python
@@ -628,7 +628,7 @@ print([*itertools.combinations([1,2,3,4], 3)])
     [(1, 2, 3), (1, 2, 4), (1, 3, 4), (2, 3, 4)]
     
 
-combinations_with_replacement : 再利用ありの組み合わせ
+### combinations_with_replacement : 再利用ありの組み合わせ
 
 
 ```python
@@ -638,7 +638,7 @@ print([*itertools.combinations_with_replacement([1,2,3,4], 3)])
     [(1, 1, 1), (1, 1, 2), (1, 1, 3), (1, 1, 4), (1, 2, 2), (1, 2, 3), (1, 2, 4), (1, 3, 3), (1, 3, 4), (1, 4, 4), (2, 2, 2), (2, 2, 3), (2, 2, 4), (2, 3, 3), (2, 3, 4), (2, 4, 4), (3, 3, 3), (3, 3, 4), (3, 4, 4), (4, 4, 4)]
     
 
-count : カウントアップする。無限iteratorである。
+### count : カウントアップする。無限iteratorである。
 
 
 ```python
@@ -657,7 +657,7 @@ for i in itertools.count(5, 2):
     13
     
 
-cycle : シーケンスを繰り返す。無限iteratorである。
+### cycle : シーケンスを繰り返す。無限iteratorである。
 
 
 ```python
@@ -681,7 +681,7 @@ for i in itertools.cycle([1,2,3]):
     1
     
 
-repeat : 一定値を繰り返す。n未設定の場合は無限iteratorである。
+### repeat : 一定値を繰り返す。n未設定の場合は無限iteratorである。
 
 
 ```python
