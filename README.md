@@ -13,7 +13,7 @@ Pythonトレーニング用のレポジトリです。
 - [day04 : ループと条件分岐                  ](./doc/lecture/for-if-else/README.md)
 - [day05 : iteratorとgenerator               ](./doc/lecture/iterator-generator/README.md)
 - [day06 : lambda式とmap, filter, reduce     ](./doc/lecture/lambda/README.md)
-- [day07 : デコレータとコンテキストマネージャ](./doc/lecture/deco-and-context/README.md)
+- [day07 : デコレータとコンテキストマネージャ](./doc/lecture/decolator-and-context-manager/README.md)
 - isなんとか
   - isinstance, issubclass
 - 非同期実行(threadとかasync)
