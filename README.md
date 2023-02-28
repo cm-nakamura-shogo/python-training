@@ -6,15 +6,14 @@ Pythonトレーニング用のレポジトリです。
 
 ### 基礎編
 
-- [day00 : 事前準備                      ](./doc/lecture/prepare/README.md)
-- [day01 : 標準データ型                  ](./doc/lecture/std-data-type/README.md)
-- [day02 : プログラム入出力・ファイル操作](./doc/lecture/input-output/README.md)
-- [day03 : 関数とクラス                  ](./doc/lecture/function-class/README.md)
-- [day04 : ループと条件分岐              ](./doc/lecture/for-if-else/README.md)
-- [day05 : iteratorとgenerator           ](./doc/lecture/iterator-generator/README.md)
-- [day06 : lambda式とmap, filter, reduce ](./doc/lecture/lambda/README.md)
-- デコレータとコンテキストマネージャ
-  - [Pythonの関数の引数と戻り値のログ出力をデコレータで部品化する（Google Cloud Functions） | DevelopersIO](https://dev.classmethod.jp/articles/python-decorator-log-gcf/)
+- [day00 : 事前準備                          ](./doc/lecture/prepare/README.md)
+- [day01 : 標準データ型                      ](./doc/lecture/std-data-type/README.md)
+- [day02 : プログラム入出力・ファイル操作    ](./doc/lecture/input-output/README.md)
+- [day03 : 関数とクラス                      ](./doc/lecture/function-class/README.md)
+- [day04 : ループと条件分岐                  ](./doc/lecture/for-if-else/README.md)
+- [day05 : iteratorとgenerator               ](./doc/lecture/iterator-generator/README.md)
+- [day06 : lambda式とmap, filter, reduce     ](./doc/lecture/lambda/README.md)
+- [day07 : デコレータとコンテキストマネージャ](./doc/lecture/deco-and-context/README.md)
 - isなんとか
   - isinstance, issubclass
 - 非同期実行(threadとかasync)
