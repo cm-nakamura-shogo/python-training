@@ -1,4 +1,4 @@
-<a href="README.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+<a href="https://colab.research.google.com/github/cm-nakamura-shogo/python-training/blob/master/doc/lecture/lambda/README.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 # lambda式とmap, filter, reduce
 
@@ -63,7 +63,7 @@ mapは全要素に同じ操作を、filterはある条件での抽出操作を�
 
 
 ```python
-gen = map(lambda x: x+1, [1,2,3,4,5])
+it = map(lambda x: x+1, [1,2,3,4,5])
 
 gen.__next__()
 gen.__next__()
