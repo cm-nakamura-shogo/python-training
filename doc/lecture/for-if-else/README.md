@@ -2,6 +2,13 @@
 
 # ループと条件分岐
 
+ここでは主に以下をやります。
+
+- forなどの基本的なループとrange, enumerate, zipなど
+- if-elseなどの基本的な条件分岐
+- ついでに条件分岐で浮動小数の丸め誤差について
+- リスト内包表記について
+
 ## 基本のループ
 
 ### inで要素毎のループをまわす
@@ -320,118 +327,3 @@ sample_list_4
 
 
 一般的に普通のforよりもリスト内包表記の方が高速と言われるが、可読性とのトレードオフともいえる。（たとえば複数階層のリスト内包表記は理解しづらい）
-
-## itertools
-
-WIP
-
-## iterator
-
-iteratorとはイテレータプロトコルをもつコンテナのこと。`__next__`と`__iter__`というメソッドを持てはiteratorと言ってよい。
-
-自作のiteratorの例をエキPyから持ってきた。
-
-
-```python
-class CountDown:
-    def __init__(self, step):
-        self.step = step
-
-    def __next__(self):
-        if self.step <= 0:
-            raise StopIteration
-        self.step -= 1
-        return self.step
-
-    def __iter__(self):
-        return self
-```
-
-iteratorはこのようにfor文でループさせることができる。ループを抜けるタイミングは、`StopIteration`という例外が投げられた時。
-
-
-```python
-count_down = CountDown(3)
-for i in count_down:
-    print(i)
-```
-
-    2
-    1
-    0
-    
-
-もう一度繰り返すことはできない。
-
-
-```python
-for i in count_down:
-    print(i)
-```
-
-繰り返し使用したい場合は、iteratorと状態を分割する。
-
-
-```python
-class CountState:
-    def __init__(self, step):
-        self.step = step
-
-    def __next__(self):
-        if self.step <= 0:
-            raise StopIteration
-        self.step -= 1
-        return self.step
-
-class CountDown:
-    def __init__(self, step):
-        self.step = step
-
-    def __iter__(self):
-        return CountState(self.step)
-```
-
-
-```python
-count_down = CountDown(3)
-for i in count_down:
-    print(i)
-for i in count_down:
-    print(i)
-```
-
-    2
-    1
-    0
-    2
-    1
-    0
-    
-
-
-```python
-type(enumerate(range(100)))
-```
-
-
-
-
-    enumerate
-
-
-
-## generator
-
-WIP
-
-## lambda式
-
-WIP
-
-## map, filter, reduce
-
-WIP
-
-- [Pythonのreduceと内包表記／ジェネレータ式を比較してみた | DevelopersIO](https://dev.classmethod.jp/articles/python-reduce-vs-generator)
-
-

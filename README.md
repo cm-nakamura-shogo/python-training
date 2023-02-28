@@ -10,7 +10,9 @@ Pythonトレーニング用のレポジトリです。
 - [day01 : 標準データ型                  ](./doc/lecture/std-data-type/README.md)
 - [day02 : プログラム入出力・ファイル操作](./doc/lecture/input-output/README.md)
 - [day03 : 関数とクラス                  ](./doc/lecture/function-class/README.md)
-- [day04 : ループと条件分岐              ](./doc/lecture/iterator-generator-branch/README.md)
+- [day04 : ループと条件分岐              ](./doc/lecture/for-if-else/README.md)
+- [day05 : iteratorとgenerator           ](./doc/lecture/iterator-generator/README.md)
+- [day06 : lambda式とmap, filter, reduce ](./doc/lecture/lambda/README.md)
 - デコレータとコンテキストマネージャ
   - [Pythonの関数の引数と戻り値のログ出力をデコレータで部品化する（Google Cloud Functions） | DevelopersIO](https://dev.classmethod.jp/articles/python-decorator-log-gcf/)
 - isなんとか
@@ -18,6 +20,7 @@ Pythonトレーニング用のレポジトリです。
 - 非同期実行(threadとかasync)
 - NumPy
 - Pandas
+  - いまさらもうPandasのやる気は起きないので、Polarsの記事でも見てください
 - デバッグとロギング
 - 型ヒントとvalidation
   - [Pythonで型を極める【Python 3.9対応】 - Qiita](https://qiita.com/papi_tokei/items/bf652696d6b98f23565a)
