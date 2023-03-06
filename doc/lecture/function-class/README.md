@@ -80,7 +80,7 @@ print_message("nokomoro3")
 
 ただし、以下のように参照しつつ代入しようとすると、ローカルとみなされてエラーとなるので注意が必要。
 
-（ここのロジックはあまりわかってない）
+（ここのロジックは後述）
 
 
 ```python
@@ -398,7 +398,7 @@ print(SampleCat.sample_class_var)
     hoge
     
 
-このクラス変数はクラスのどこでも再代入できるので要注意。
+このクラス変数はどこでも再代入できるので要注意。
 
 
 ```python
@@ -410,6 +410,7 @@ class SampleCat():
     def __init__(self, name: str):
         self.name = name
         self.hoge = name
+        print(self.sample_class_var)
     def 呼びかける(self, name: str):
         if self.name in name:
             print("にゃー")
@@ -417,9 +418,14 @@ class SampleCat():
             print("（は？名前よべし）")
 
 print(SampleCat.sample_class_var)
+
+SampleCat.sample_class_var = "fuga"
+
+print(SampleCat.sample_class_var)
 ```
 
     hoge
+    fuga
     
 
 ### finalな変数（定数）の定義
