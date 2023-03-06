@@ -73,9 +73,29 @@ print_message("nokomoro3")
 ```
 
     {'name': 'nokomoro3'}
-    {'__name__': '__main__', '__doc__': 'Automatically created module for IPython interactive environment', '__package__': None, '__loader__': None, '__spec__': None, '__builtin__': <module 'builtins' (built-in)>, '__builtins__': <module 'builtins' (built-in)>, '_ih': ['', 'def print_message(name: str):\n    print(f"ワイは{name}である。")\n    return\n\nprint_message("nokomoro3")', 'hoge = "hoge"\ndef print_message(name: str):\n    print(f"ワイは{name}である。")\n    print(f"{hoge}")\n    return\n\nprint_message("nokomoro3")', 'hoge = "hoge"\ndef print_message(name: str):\n    print(locals()) # add\n    print(globals()) # add\n    print(f"ワイは{name}である。")\n    print(f"{hoge}")\n    return\n\nprint_message("nokomoro3")'], '_oh': {}, '_dh': [WindowsPath('c:/Users/nakamura.shogo/Desktop/repos/cm-nakamura-shogo/python-training/doc/lecture/function-class'), WindowsPath('c:/Users/nakamura.shogo/Desktop/repos/cm-nakamura-shogo/python-training/doc/lecture/function-class')], 'In': ['', 'def print_message(name: str):\n    print(f"ワイは{name}である。")\n    return\n\nprint_message("nokomoro3")', 'hoge = "hoge"\ndef print_message(name: str):\n    print(f"ワイは{name}である。")\n    print(f"{hoge}")\n    return\n\nprint_message("nokomoro3")', 'hoge = "hoge"\ndef print_message(name: str):\n    print(locals()) # add\n    print(globals()) # add\n    print(f"ワイは{name}である。")\n    print(f"{hoge}")\n    return\n\nprint_message("nokomoro3")'], 'Out': {}, 'get_ipython': <bound method InteractiveShell.get_ipython of <ipykernel.zmqshell.ZMQInteractiveShell object at 0x000001E273010910>>, 'exit': <IPython.core.autocall.ZMQExitAutocall object at 0x000001E273045520>, 'quit': <IPython.core.autocall.ZMQExitAutocall object at 0x000001E273045520>, 'open': <function open at 0x000001E2715714C0>, '_': '', '__': '', '___': '', '__vsc_ipynb_file__': 'c:\\Users\\nakamura.shogo\\Desktop\\repos\\cm-nakamura-shogo\\python-training\\doc\\lecture\\function-class\\README.ipynb', '_i': 'hoge = "hoge"\ndef print_message(name: str):\n    print(f"ワイは{name}である。")\n    print(f"{hoge}")\n    return\n\nprint_message("nokomoro3")', '_ii': 'def print_message(name: str):\n    print(f"ワイは{name}である。")\n    return\n\nprint_message("nokomoro3")', '_iii': '', '_i1': 'def print_message(name: str):\n    print(f"ワイは{name}である。")\n    return\n\nprint_message("nokomoro3")', 'print_message': <function print_message at 0x000001E273074D30>, '_i2': 'hoge = "hoge"\ndef print_message(name: str):\n    print(f"ワイは{name}である。")\n    print(f"{hoge}")\n    return\n\nprint_message("nokomoro3")', 'hoge': 'hoge', '_i3': 'hoge = "hoge"\ndef print_message(name: str):\n    print(locals()) # add\n    print(globals()) # add\n    print(f"ワイは{name}である。")\n    print(f"{hoge}")\n    return\n\nprint_message("nokomoro3")'}
+    {'__name__': '__main__', '__doc__': 'Automatically created module for IPython interactive environment', '__package__': None, '__loader__': None, '__spec__': None, '__builtin__': <module 'builtins' (built-in)>, '__builtins__': <module 'builtins' (built-in)>, '_ih': ['', 'def print_message(name: str):\n    print(f"ワイは{name}である。")\n    return\n\nprint_message("nokomoro3")', 'hoge = "hoge"\ndef print_message(name: str):\n    print(f"ワイは{name}である。")\n    print(f"{hoge}")\n    return\n\nprint_message("nokomoro3")', 'hoge = "hoge"\ndef print_message(name: str):\n    print(locals()) # add\n    print(globals()) # add\n    print(f"ワイは{name}である。")\n    print(f"{hoge}")\n    return\n\nprint_message("nokomoro3")'], '_oh': {}, '_dh': [WindowsPath('c:/Users/nakamura.shogo/Desktop/repos/cm-nakamura-shogo/python-training/doc/lecture/function-class'), WindowsPath('c:/Users/nakamura.shogo/Desktop/repos/cm-nakamura-shogo/python-training/doc/lecture/function-class')], 'In': ['', 'def print_message(name: str):\n    print(f"ワイは{name}である。")\n    return\n\nprint_message("nokomoro3")', 'hoge = "hoge"\ndef print_message(name: str):\n    print(f"ワイは{name}である。")\n    print(f"{hoge}")\n    return\n\nprint_message("nokomoro3")', 'hoge = "hoge"\ndef print_message(name: str):\n    print(locals()) # add\n    print(globals()) # add\n    print(f"ワイは{name}である。")\n    print(f"{hoge}")\n    return\n\nprint_message("nokomoro3")'], 'Out': {}, 'get_ipython': <bound method InteractiveShell.get_ipython of <ipykernel.zmqshell.ZMQInteractiveShell object at 0x000001ECE3000910>>, 'exit': <IPython.core.autocall.ZMQExitAutocall object at 0x000001ECE3035520>, 'quit': <IPython.core.autocall.ZMQExitAutocall object at 0x000001ECE3035520>, 'open': <function open at 0x000001ECE15714C0>, '_': '', '__': '', '___': '', '__vsc_ipynb_file__': 'c:\\Users\\nakamura.shogo\\Desktop\\repos\\cm-nakamura-shogo\\python-training\\doc\\lecture\\function-class\\README.ipynb', '_i': 'hoge = "hoge"\ndef print_message(name: str):\n    print(f"ワイは{name}である。")\n    print(f"{hoge}")\n    return\n\nprint_message("nokomoro3")', '_ii': 'def print_message(name: str):\n    print(f"ワイは{name}である。")\n    return\n\nprint_message("nokomoro3")', '_iii': '', '_i1': 'def print_message(name: str):\n    print(f"ワイは{name}である。")\n    return\n\nprint_message("nokomoro3")', 'print_message': <function print_message at 0x000001ECE3064F70>, '_i2': 'hoge = "hoge"\ndef print_message(name: str):\n    print(f"ワイは{name}である。")\n    print(f"{hoge}")\n    return\n\nprint_message("nokomoro3")', 'hoge': 'hoge', '_i3': 'hoge = "hoge"\ndef print_message(name: str):\n    print(locals()) # add\n    print(globals()) # add\n    print(f"ワイは{name}である。")\n    print(f"{hoge}")\n    return\n\nprint_message("nokomoro3")'}
     ワイはnokomoro3である。
     hoge
+    
+
+ただし、以下のように実行するとエラーとなるので注意が必要。
+
+
+```python
+try:
+    hoge = "hoge"
+    def print_message(name: str):
+        hoge = hoge + "aaa"
+        print(f"ワイは{name}である。")
+        print(hoge)
+        return
+
+    print_message("nokomoro3")
+except Exception as e:
+    print(e)
+```
+
+    local variable 'hoge' referenced before assignment
     
 
 （グローバルにはipynbの場合なので様々な変数が格納されていることがわかる。）
@@ -116,10 +136,10 @@ print_message("nokomoro3")
 print(f"{hoge}, {id(hoge)}") # add id check
 ```
 
-    hoge, 2072104070640
+    hoge, 2116932675824
     ワイはnokomoro3である。
-    hoge_local, 2072104112496
-    hoge, 2072104070640
+    hoge_local, 2116932702000
+    hoge, 2116932675824
     
 
 ### グローバル変数の変更
@@ -141,10 +161,10 @@ print_message("nokomoro3")
 print(f"{hoge}, {id(hoge)}")
 ```
 
-    hoge, 2072104070640
+    hoge, 2116932675824
     ワイはnokomoro3である。
-    hoge_local, 2072104112496
-    hoge_local, 2072104112496
+    hoge_local, 2116932702000
+    hoge_local, 2116932702000
     
 
 オブジェクトIDを見ると分かるように、元と同じオブジェクトというわけではないので注意が必要（そもそも文字列がimmutableなので仕方ない）。
@@ -155,43 +175,25 @@ print(f"{hoge}, {id(hoge)}")
 
 
 ```python
-hoge = "hoge"
-print(f"{hoge}, {id(hoge)}")
-def print_message(name: str):
-    print(f"{hoge}, {id(hoge)}") # ここがエラーに
-    hoge = "hoge_local" # ここがあると
-    print(f"ワイは{name}である。")
+try:
+    hoge = "hoge"
     print(f"{hoge}, {id(hoge)}")
-    return
+    def print_message(name: str):
+        print(f"{hoge}, {id(hoge)}") # ここがエラーに
+        hoge = "hoge_local" # ここがあると
+        print(f"ワイは{name}である。")
+        print(f"{hoge}, {id(hoge)}")
+        return
 
-print_message("nokomoro3")
-print(f"{hoge}, {id(hoge)}")
+    print_message("nokomoro3")
+    print(f"{hoge}, {id(hoge)}")
+except Exception as e:
+    print(e)
 ```
 
-    hoge, 2072104070640
+    hoge, 2116932675824
+    local variable 'hoge' referenced before assignment
     
-
-
-    ---------------------------------------------------------------------------
-
-    UnboundLocalError                         Traceback (most recent call last)
-
-    Cell In[7], line 10
-          7     print(f"{hoge}, {id(hoge)}")
-          8     return
-    ---> 10 print_message("nokomoro3")
-         11 print(f"{hoge}, {id(hoge)}")
-    
-
-    Cell In[7], line 4, in print_message(name)
-          3 def print_message(name: str):
-    ----> 4     print(f"{hoge}, {id(hoge)}") # ここがエラーに
-          5     hoge = "hoge_local" # ここがあると
-          6     print(f"ワイは{name}である。")
-    
-
-    UnboundLocalError: local variable 'hoge' referenced before assignment
-
 
 ### mutableな変数の場合
 
@@ -213,10 +215,10 @@ print_message("nokomoro3")
 print(f"{hoge_list}, {id(hoge_list)}")
 ```
 
-    ['hoge1'], 2072124910720
+    ['hoge1'], 2116933016832
     ワイはnokomoro3である。
-    ['hoge1', 'hoge2'], 2072124910720
-    ['hoge1', 'hoge2'], 2072124910720
+    ['hoge1', 'hoge2'], 2116933016832
+    ['hoge1', 'hoge2'], 2116933016832
     
 
 上のインデントの情報を持ってこれるのは、グローバル以外でも同様だが、グローバルのように再代入する方法は準備されていない様子。
@@ -239,11 +241,11 @@ def sample():
 sample()
 ```
 
-    fuga, 2072104051440
+    fuga, 2116932768048
     {'name': 'nokomoro3', 'fuga': 'fugafuga'}
     ワイはnokomoro3である。
-    fugafuga, 2072125036976
-    fuga, 2072104051440
+    fugafuga, 2116932708272
+    fuga, 2116932768048
     
 
 ### 関数化の課題
@@ -435,3 +437,38 @@ Python 3.7まではfinalな変数（定数）は定義できなかったが、Py
 ここらへんも
 
 - [Pythonのアンダースコア( _ )を使いこなそう！. Pythonを上手そうに見させる手品の一つ「アンダースコア」の4種類の使い方を説… | by Neil Wu | LSC PSD | Medium](https://medium.com/lsc-psd/pythonic%E8%89%B2%E3%80%85-python%E3%81%AE%E3%82%A2%E3%83%B3%E3%83%80%E3%83%BC%E3%82%B9%E3%82%B3%E3%82%A2-%E3%82%92%E4%BD%BF%E3%81%84%E3%81%93%E3%81%AA%E3%81%9D%E3%81%86-3c132842eeef)
+
+## 演習
+
+問１：以下を実行した時の出力を答えよ
+
+
+```python
+def f():
+    def g(a):
+        global s
+        s += a
+    s = 1
+    g(2)
+    print(s)
+
+s = 0
+f()
+print(s)
+```
+
+問２：以下を実行した時の出力を答えよ
+
+
+```python
+def f():
+    def g(a):
+        s = 100
+        print(s)
+    g(2)
+    print(s)
+
+s = 0
+f()
+print(s)
+```
