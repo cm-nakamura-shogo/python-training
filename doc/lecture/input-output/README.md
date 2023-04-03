@@ -42,6 +42,11 @@ if __name__ == "__main__":
     print(args.__dict__)
 ```
 
+さらに細かい制御はここら辺を参照
+
+- [argparseのヘルプメッセージ改行位置を変更する方法 - Qiita](https://qiita.com/moshi/items/f354a2e24424244c0451)
+- [argparse：ヘルプのフォーマットクラスを利用して、ヘルプメッセージを改善する（メッセージの改行、デフォルト値/requiredの表示） - Qiita](https://qiita.com/yuji38kwmt/items/c7c4d487e3188afd781e)
+
 ### open
 
 基本的にはwithを使って以下のような形で記述する。

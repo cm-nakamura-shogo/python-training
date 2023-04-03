@@ -30,6 +30,8 @@
   - [change-case](https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case)
     - 選択範囲を特定のchaseに変更する。
     - snake_caseやkebab-caseなど。
+  - [Snippet Generator](https://marketplace.visualstudio.com/items?itemName=fiore57.snippet-generator)
+    - コードスニペットを作成する補助ツール
 
 - 視認性
   - [indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow)
