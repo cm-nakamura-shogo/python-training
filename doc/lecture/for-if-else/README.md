@@ -71,6 +71,28 @@ for k, v in sample_dict.items():
 
 
 ```python
+for element in sample_dict.items():
+    print(element)
+```
+
+    ('A', 100)
+    ('B', 200)
+    ('C', 300)
+    
+
+
+```python
+a, b = (10, 20)
+print(a)
+print(b)
+```
+
+    10
+    20
+    
+
+
+```python
 sample_dict = {'A': 100, 'B': 200, 'C': 300}
 
 for k in sample_dict.keys():
@@ -139,14 +161,15 @@ for i, v in enumerate(sample_list):
 ```python
 sample_list1 = [10, 20, 30]
 sample_list2 = [100, 200, 300]
+sample_list3 = ["A", "B", "C"]
 
-for v1, v2 in zip(sample_list1, sample_list2):
-    print(v1, v2)
+for v1, v2, v3 in zip(sample_list1, sample_list2, sample_list3):
+    print(v1, v2, v3)
 ```
 
-    10 100
-    20 200
-    30 300
+    10 100 A
+    20 200 B
+    30 300 C
     
 
 ## 基本の条件分岐
