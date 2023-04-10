@@ -208,9 +208,21 @@ except Exception as e:
     'enumerate' object is not subscriptable
     
 
+
+```python
+[i for i in enumerate(sample_list)][3]
+```
+
+
+
+
+    (3, 2)
+
+
+
 初期はこの`object is not subscriptable`が意味が分からなくてつまずくことが多い。
 
-解決策としてはリスト内包表記で以下のように一度アンパックしてしまう。
+解決策としては以下のように一度アンパックしてしまう。
 
 
 ```python

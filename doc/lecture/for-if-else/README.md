@@ -350,3 +350,55 @@ sample_list_4
 
 
 一般的に普通のforよりもリスト内包表記の方が高速と言われるが、可読性とのトレードオフともいえる。（たとえば複数階層のリスト内包表記は理解しづらい）
+
+使いどころだが、各要素に均等な処理をする場合、リスト内包表記で、それ以外は普通のfor文というイメージで良いと思う。
+
+各要素に均等な処理をするってのが、コード的に分かりやすいということも含めて上記の意見。
+
+（JavaScriptもfor文滅多に使わずmapとかreduceでやるからにているのかな、ここら辺は）
+
+### 速度の検証
+
+
+```python
+N = 100000000
+```
+
+
+```python
+%%timeit
+A = [i*2 for i in range(N)]
+```
+
+    6.39 s ± 209 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+    
+
+
+```python
+%%timeit
+A = []
+for i in range(N):
+    A.append(i*2)
+```
+
+    8.92 s ± 343 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+    
+
+
+```python
+import numpy as np
+```
+
+
+```python
+%%timeit
+A = [*(np.arange(N) * 2)]
+```
+
+    3.88 s ± 273 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+    
+
+
+```python
+
+```
