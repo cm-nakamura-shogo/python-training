@@ -11,6 +11,9 @@
 - 以下を参考に構築する。
   - [pyenvとpoetryでディレクトリ毎にPython環境を切り替える手順＋ノウハウまとめ | DevelopersIO](https://dev.classmethod.jp/articles/pyenv-and-poetry/)
   - いれるバージョンは記事通りPython 3.8以降が良いかなと思います。
+  - `python`は`python3`にしないと動かないケースもあるようです
+  - SSLエラーが出る場合は以下も参照
+    - [[Mac]Poetryがインストールできないときの回避策](https://zenn.dev/shuntaka/scraps/ac092320168d36)
 
 ## VSCode
 
@@ -99,6 +102,11 @@
     - 実はあまり詳しくない。
   - [Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
     - コンテナ開発で使うやつ。実はあまり詳しくない。
+
+### その他
+
+- boto3-stubsは便利
+  - [Boto3の補完を可能にするboto3-stubsを使ってみる | DevelopersIO](https://dev.classmethod.jp/articles/try-boto3-stubs/)
 
 ### コードスニペットの使い方
 
