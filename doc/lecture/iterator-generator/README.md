@@ -428,7 +428,7 @@ print(f"{gen.__next__()=}")
 
     StopIteration                             Traceback (most recent call last)
 
-    Cell In[3], line 3
+    Cell In[19], line 3
           1 gen = count_down(5)
           2 print(f"{gen.__next__()=}")
     ----> 3 print(f"{gen.__next__()=}")
@@ -447,6 +447,38 @@ print(f"{gen.__next__()=}")
 ここら辺の話は以下もご参考
 
 - [Pythonのジェネレータってyieldするだけじゃなかったんだね](https://zenn.dev/alivelimb/articles/20220505-typing-generator)
+
+以降復習
+
+
+```python
+def count_down(n: int):
+    count = n
+    while count>0:
+        count = count - 1
+        yield count
+
+for i in count_down(5):
+    print(i)
+```
+
+    4
+    3
+    2
+    1
+    0
+    
+
+
+```python
+gen = count_down(5)
+values = [*gen] # アンパック
+# print(type(values))
+print(values[3])
+```
+
+    1
+    
 
 ## itertools
 
@@ -549,6 +581,19 @@ for val, it in itertools.groupby([1,2,2,3,3,3,2,2,2,2,1,1,1,1,1]):
     val=1, [*it]=[1, 1, 1, 1, 1]
     
 
+
+```python
+for val, it in itertools.groupby(["a","a",2,3,3,3,2,2,2,2,1,1,1,1,1]):
+    print(f"{val=}, {[*it]=}")
+```
+
+    val='a', [*it]=['a', 'a']
+    val=2, [*it]=[2]
+    val=3, [*it]=[3, 3, 3]
+    val=2, [*it]=[2, 2, 2, 2]
+    val=1, [*it]=[1, 1, 1, 1, 1]
+    
+
 ### islice : 普通のスライスと同じ
 
 普通のスライスと同じ感じ。
@@ -556,6 +601,15 @@ for val, it in itertools.groupby([1,2,2,3,3,3,2,2,2,2,1,1,1,1,1]):
 
 ```python
 print([*itertools.islice([1,2,3,4,5], 1, 4, 2)]) # start, stop, step
+```
+
+    [2, 4]
+    
+
+
+```python
+sample_list = [1,2,3,4,5]
+print(sample_list[1:4:2])
 ```
 
     [2, 4]
@@ -574,12 +628,20 @@ except Exception as e:
     Stop argument for islice() must be None or an integer: 0 <= x <= sys.maxsize.
     
 
+
+```python
+print(sample_list[1:-1:2])
+```
+
+    [2, 4]
+    
+
 ### pairwise : 先頭から2個ずつを組にして取ってくる（これは3.10以降でしか使えない）
 
 
 ```python
 # print([*itertools.pairwise([1,2,3,4,5,6])])
-# => [(1,2), (3,4), (5,6)]
+# => [(1,2), (2,3), (3,4), (4,5), (5,6)]
 ```
 
 ### starmap : ある関数と引数の組で一括処理する。
@@ -609,20 +671,80 @@ print([*it])
     []
     
 
+
+```python
+it = itertools.accumulate([1,2,3,4,5])
+for i in it:
+    print(i)
+```
+
+    1
+    3
+    6
+    10
+    15
+    
+
+
+```python
+for i in it:
+    print(i)
+```
+
 これをteeで複数回やることが可能。
 
 
 ```python
 for it in itertools.tee(itertools.accumulate([1,2,3,4,5]), 3):
-    print([*it])
+    # print([*it])
+    for i in it:
+        print(i)
 ```
 
-    [1, 3, 6, 10, 15]
-    [1, 3, 6, 10, 15]
-    [1, 3, 6, 10, 15]
+    1
+    3
+    6
+    10
+    15
+    1
+    3
+    6
+    10
+    15
+    1
+    3
+    6
+    10
+    15
     
 
 ### zip_longest : 長さの違うzipを長い方に併せてiterationする。短い側を何で埋めるかは指定可能。
+
+
+```python
+for i,j,k in zip([1,2,3,4,5],"abcde", "12345"):
+    print(i,j,k)
+```
+
+    1 a 1
+    2 b 2
+    3 c 3
+    4 d 4
+    5 e 5
+    
+
+
+```python
+for i,j,k in zip([1,2,3,4,5],"abcdefg", "12345678"):
+    print(i,j,k)
+```
+
+    1 a 1
+    2 b 2
+    3 c 3
+    4 d 4
+    5 e 5
+    
 
 
 ```python
@@ -649,14 +771,40 @@ for i in itertools.zip_longest([1,2,3,4,5],"abcdefg", "12345678", fillvalue=-1):
 sample_list = [1,2,3,4,5]
 iters = itertools.accumulate(sample_list)
 print([*iters])
+```
 
+    [1, 3, 6, 10, 15]
+    
+
+
+```python
 iters = itertools.accumulate(sample_list)
 sample_list.append(6)
 print([*iters])
 ```
 
-    [1, 3, 6, 10, 15]
     [1, 3, 6, 10, 15, 21]
+    
+
+append使わずにやればミスしにくくはある（スピードとのトレードオフ）
+
+
+```python
+sample_list = [1,2,3,4,5]
+iters = itertools.accumulate(sample_list)
+sample_list = [*sample_list, 6] # あたらしく作成
+print([*iters])
+```
+
+    [1, 3, 6, 10, 15]
+    
+
+
+```python
+print(sample_list)
+```
+
+    [1, 2, 3, 4, 5, 6]
     
 
 ### product : 総当たり
@@ -669,7 +817,42 @@ print([*itertools.product([1,2,3], [4,5,6])])
     [(1, 4), (1, 5), (1, 6), (2, 4), (2, 5), (2, 6), (3, 4), (3, 5), (3, 6)]
     
 
-### permutations : 順列
+
+```python
+for i in [1,2,3]:
+    for j in [4,5,6]:
+        print(i+j)
+```
+
+    5
+    6
+    7
+    6
+    7
+    8
+    7
+    8
+    9
+    
+
+
+```python
+for i,j in itertools.product([1,2,3], [4,5,6]):
+    print(i+j)
+```
+
+    5
+    6
+    7
+    6
+    7
+    8
+    7
+    8
+    9
+    
+
+### permutations : 順列(P)
 
 
 ```python
@@ -688,6 +871,18 @@ print([*itertools.combinations([1,2,3,4], 3)])
 
     [(1, 2, 3), (1, 2, 4), (1, 3, 4), (2, 3, 4)]
     
+
+
+```python
+len([*itertools.combinations([1,2,3,4], 3)])
+```
+
+
+
+
+    4
+
+
 
 ### combinations_with_replacement : 再利用ありの組み合わせ
 
@@ -717,6 +912,13 @@ for i in itertools.count(5, 2):
     11
     13
     
+
+アンパックすると無限ループに入る
+
+
+```python
+# [*itertools.count(5, 2)]
+```
 
 ### cycle : シーケンスを繰り返す。無限iteratorである。
 
