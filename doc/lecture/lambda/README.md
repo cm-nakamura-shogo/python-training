@@ -106,6 +106,34 @@ print([*it])
 
 まあでも関数型で副作用のないデータ変換を実施する際にmapなどを使うため、lambda式で書けるような変換の用途の方が向いているともいえる。
 
+starmapとmapの違い
+
+
+```python
+import itertools
+
+list(itertools.starmap(pow, [[2,3],[3,4],[4,5]]))
+```
+
+
+
+
+    [8, 81, 1024]
+
+
+
+
+```python
+list(map(pow, [2,3,4],[3,4,5]))
+```
+
+
+
+
+    [8, 81, 1024]
+
+
+
 ## filter
 
 要素を抽出する処理です。
