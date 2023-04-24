@@ -389,7 +389,7 @@ sendでも__next__のように一つ先に進むので送った後に結果を�
 
 generatorでreturnをすると、強制的に終了される。
 
-またreturnすることで、値を`StopIteration`に含めることができる。
+またreturnすることで、値を`StopIteration`の例外のメッセージに含めることができる。
 
 
 ```python
@@ -413,12 +413,36 @@ except Exception as e:
     finish
     
 
+
+```python
+gen = count_down(5)
+print(f"{gen.__next__()=}")
+print(f"{gen.__next__()=}")
+```
+
+    gen.__next__()=4
+    
+
+
+    ---------------------------------------------------------------------------
+
+    StopIteration                             Traceback (most recent call last)
+
+    Cell In[3], line 3
+          1 gen = count_down(5)
+          2 print(f"{gen.__next__()=}")
+    ----> 3 print(f"{gen.__next__()=}")
+    
+
+    StopIteration: finish
+
+
 ### まとめ
 
 - generatorはyieldで値を逐次生成する。
 - generatorは関数で実装できるためiteratorよりも簡単に作成できる。
-- generatorはiteratorと同様要素のアクセスにアンパックが必要。
-- generatorの型には、YieldType, SendType, ReturnTypeがある。
+- generatorはiteratorと同様要素のアクセスにアンパックなどが必要。
+- generatorの返す値には、YieldType, SendType, ReturnTypeがある。
 
 ここら辺の話は以下もご参考
 
@@ -452,18 +476,20 @@ print([*itertools.accumulate([1,2,3,4,5])])
 
 
 ```python
-print([*itertools.chain([1,2,3],[4,5,6])])
+print([*itertools.chain([1,2,3],[4,5,6],[7,8])])
 ```
 
-    [1, 2, 3, 4, 5, 6]
+    [1, 2, 3, 4, 5, 6, 7, 8]
     
+
+要素内を連結したい場合はこちら
 
 
 ```python
-print([*itertools.chain.from_iterable([[1,2,3],[4,5,6]])])
+print([*itertools.chain.from_iterable([[1,2,3],[4,5,6],[7,8]])])
 ```
 
-    [1, 2, 3, 4, 5, 6]
+    [1, 2, 3, 4, 5, 6, 7, 8]
     
 
 ### compress : フラグでselectする。
@@ -477,6 +503,8 @@ print([*itertools.compress([1,2,3,4,5], [1,0,0,1,1])])
     
 
 ### takewhile, dropwhile : 要素を先頭から辿り、要素が偽になるまで、と偽になった後をそれぞれ抽出する。
+
+条件はlambda式で指定する。
 
 
 ```python
@@ -495,6 +523,8 @@ print([*itertools.dropwhile(lambda x: x!=10, [1,2,3,10,4,3,2,10])])
     
 
 ### filterfalse : 偽になる要素を抽出
+
+こちらも、条件はlambda式で指定する。
 
 
 ```python
@@ -519,24 +549,42 @@ for val, it in itertools.groupby([1,2,2,3,3,3,2,2,2,2,1,1,1,1,1]):
     val=1, [*it]=[1, 1, 1, 1, 1]
     
 
-islice : 普通のスライスと同じ。負のindexが使えないので、あまり使うことはない気がする。
+### islice : 普通のスライスと同じ
+
+普通のスライスと同じ感じ。
 
 
 ```python
-print([*itertools.islice([1,2,3,4,5], 1, 4, 2)])
+print([*itertools.islice([1,2,3,4,5], 1, 4, 2)]) # start, stop, step
 ```
 
     [2, 4]
     
 
-### pairwise : 先頭から2個ずつ取ってくる。これは3.10以降でしか使えない
+ただし負のindexが使えないので、あまり使うことはない気がする。
+
+
+```python
+try:
+    print([*itertools.islice([1,2,3,4,5], 1, -1, 2)])
+except Exception as e:
+    print(e)
+```
+
+    Stop argument for islice() must be None or an integer: 0 <= x <= sys.maxsize.
+    
+
+### pairwise : 先頭から2個ずつを組にして取ってくる（これは3.10以降でしか使えない）
 
 
 ```python
 # print([*itertools.pairwise([1,2,3,4,5,6])])
+# => [(1,2), (3,4), (5,6)]
 ```
 
 ### starmap : ある関数と引数の組で一括処理する。
+
+関数をlambdaで定義し、組をそのlambdaの引数とみたてて処理するイメージ。
 
 
 ```python
@@ -601,6 +649,7 @@ for i in itertools.zip_longest([1,2,3,4,5],"abcdefg", "12345678", fillvalue=-1):
 sample_list = [1,2,3,4,5]
 iters = itertools.accumulate(sample_list)
 print([*iters])
+
 iters = itertools.accumulate(sample_list)
 sample_list.append(6)
 print([*iters])
@@ -707,3 +756,5 @@ for i in itertools.repeat(1, 5):
     1
     1
     
+
+ここまで
