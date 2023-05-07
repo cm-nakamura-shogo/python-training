@@ -15,7 +15,7 @@ Pythonトレーニング用のレポジトリです。
 - [6. lambda式とmap, filter, reduce     ](./doc/lecture/lambda/README.md)
 - [7. デコレータ                        ](./doc/lecture/decorator/README.md)
 - [8. コンテキストマネージャ            ](./doc/lecture/context-manager/README.md)
-- 9. 型ヒントとvalidation
+- 型ヒントとvalidation
   - [Pythonで型を極める【Python 3.9対応】 - Qiita](https://qiita.com/papi_tokei/items/bf652696d6b98f23565a)
   - [Pythonで型指定するTypingの基本的な使い方まとめ | deecode blog](https://deecode.net/?p=530#%E9%96%A2%E6%95%B0%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%83%BB%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF_-_Callable%E5%9E%8B)
   - [Pythonのdataclassを知る](https://zenn.dev/karaage0703/articles/3508b20ece17d4)
