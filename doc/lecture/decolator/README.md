@@ -257,7 +257,42 @@ print(myfunc.__doc__)
 
 ### 演習１
 
-指定回数処理を繰り返すデコレータを作成してください。（10分）
+指定回数処理を繰り返すデコレータを作成してください。
+<br>
+<br>
+<br>
+<br>
+<br>
+以下解答。
+
+
+```python
+from functools import wraps
+
+def repeat(n=5):
+    def mydecorator(fn):
+        @wraps(fn)
+        def wrapper(*args, **kwargs):
+            for _ in range(n):
+                fn(*args, **kwargs)
+        return wrapper
+    return mydecorator
+```
+
+
+```python
+@repeat(3)
+def myfunc():
+    """myfuncの説明"""
+    print("hogehoge")
+
+myfunc()
+```
+
+    hogehoge
+    hogehoge
+    hogehoge
+    
 
 ### 実用例
 
@@ -265,9 +300,8 @@ print(myfunc.__doc__)
 
 - [Pythonの関数の引数と戻り値のログ出力をデコレータで部品化する（Google Cloud Functions） | DevelopersIO](https://dev.classmethod.jp/articles/python-decorator-log-gcf/)
 
-## 参考
+かなり複雑に作り込むとこういう例も。
 
-- [Pythonの関数の引数と戻り値のログ出力をデコレータで部品化する（Google Cloud Functions） | DevelopersIO](https://dev.classmethod.jp/articles/python-decorator-log-gcf/)
 - [A better way to logging in Python | F5 - Squashing Bugs](https://ankitbko.github.io/blog/2021/04/logging-in-python/)
 
 以上。
