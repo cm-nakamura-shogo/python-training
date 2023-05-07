@@ -255,6 +255,52 @@ print(myfunc.__doc__)
 
 これで、関数のメタデータも保持されることが分かる。
 
+### 少し用途が違うデコレータ
+
+デコレータを付けた関数を普通に呼び出すことを想定しない使い方もある。
+
+
+```python
+funcs = []
+
+def mydecorator(function):
+    funcs.append(function)
+
+@mydecorator
+def hoge():
+    print("hoge")
+
+@mydecorator
+def fuga():
+    print("fuga")
+
+print(funcs)
+```
+
+    [<function hoge at 0x00000206D2B1CD30>, <function fuga at 0x00000206D2B1CA60>]
+    
+
+むろんこの場合は`hoge`や`fuga`を直接呼び出すことはできない。これはmydecoratorがcallableを返してないためである。（`return function`をすれば直接呼び出せる）
+
+呼び出し時は以下のように、`funcs[0]()`とすればよい。
+
+
+```python
+# fuga() # エラー
+funcs[0]()
+```
+
+    hoge
+    
+
+こういった動作は、FlaskやFastAPIなどのWebフレームワークは使用していると考えられる。
+
+参考
+
+- [Python デコレータ再入門　 ~デコレータは種類別に覚えよう~ - Qiita](https://qiita.com/macinjoke/items/1be6cf0f1f238b5ba01b)
+
+この場合にも、パラメータを与える場合には一つ外側にラッパーを設ければOK。
+
 ### 演習１
 
 指定回数処理を繰り返すデコレータを作成してください。
@@ -303,5 +349,17 @@ myfunc()
 かなり複雑に作り込むとこういう例も。
 
 - [A better way to logging in Python | F5 - Squashing Bugs](https://ankitbko.github.io/blog/2021/04/logging-in-python/)
+
+その他には以下の例がエキPyでは挙げられている。
+
+- 引数チェック
+- キャッシュ
+  - 関数が状態を持たない場合にのみ
+- プロキシ
+  - タグ付け、アクセス保護
+- コンテキストプロバイダ
+  - 特別な実行環境の設定をしたり、外したり
+  - 例としてはロック機構など
+  - 後述するwith文（コンテキストマネージャ）を使う方が現在は一般的
 
 以上。
