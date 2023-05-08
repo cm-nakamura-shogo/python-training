@@ -62,6 +62,8 @@ decorated_function = some_decorator(decorated_function)
 
 `__call__()`メソッドが定義されていれば、callableオブジェクトとなるため、関数以外で実装することも可能です。
 
+また後述しますが、デコレータがreturnするものとしてはcallable以外でもOKで何もreturnしなくてもOKです。（その場合decoratedされた関数は呼び出すとエラーになりますが）
+
 ### デコレータの実装例
 
 よく使われる実装例は以下です。
@@ -187,7 +189,7 @@ myfunc(1,2)
     ここに後処理
     
 
-### docstringが失われる件
+### このままではdocstringが失われる件
 
 実際ここまでのサンプルのままでは、元の関数名やdocstringなどの関数のメタデータが失われ、実用上問題がある。
 
@@ -255,7 +257,7 @@ print(myfunc.__doc__)
 
 これで、関数のメタデータも保持されることが分かる。
 
-### 少し用途が違うデコレータ
+### 少し用途が違うデコレータ（callableを返さないデコレータ）
 
 デコレータを付けた関数を普通に呼び出すことを想定しない使い方もある。
 
@@ -301,9 +303,9 @@ funcs[0]()
 
 この場合にも、パラメータを与える場合には一つ外側にラッパーを設ければOK。
 
-### 演習１
+### 演習問題
 
-指定回数処理を繰り返すデコレータを作成してください。
+演習１：指定回数処理を繰り返すデコレータを作成してください。
 <br>
 <br>
 <br>
@@ -340,6 +342,51 @@ myfunc()
     hogehoge
     
 
+演習２：callableを返さず、funcsというdictにデコレートされた関数を追加する処理を書いてください。またそのdictのキーはデコレータのパラメータとして与えてください。
+<br>
+<br>
+<br>
+<br>
+<br>
+以下解答
+
+
+```python
+funcs = {}
+
+def register(key):
+    def mydecorator(fn):
+        funcs[key] = fn
+    return mydecorator
+```
+
+
+```python
+@register(key="hoge")
+def hogehoge():
+    print("hogehoge")
+
+@register(key="fuga")
+def fugafuga():
+    print("fugafuga")
+```
+
+
+```python
+funcs["hoge"]()
+```
+
+    hogehoge
+    
+
+
+```python
+funcs["fuga"]()
+```
+
+    fugafuga
+    
+
 ### 実用例
 
 ここまで理解できていれば、以下のブログの例は理解できるはず。
@@ -361,5 +408,9 @@ myfunc()
   - 特別な実行環境の設定をしたり、外したり
   - 例としてはロック機構など
   - 後述するwith文（コンテキストマネージャ）を使う方が現在は一般的
+
+### 参考
+
+- 書籍 : エキスパートPythonプログラミング改訂3版 3.4.3 デコレータ
 
 以上。

@@ -261,9 +261,107 @@ with contextlib.suppress(RuntimeError):
 
 - redirect_stdout(new_target)とredirect_stderr(new_target)
 
+ブロック内のstdoutとstderrを、new_targetにリダイレクトできる。new_targetはファイルやストリームを指定できる。
+
+
+```python
+import contextlib
+
+with open("log.txt", "wt") as f:
+    with contextlib.redirect_stdout(f):
+        print("hogehoge")
+```
+
+`io.StringIO`などのストリームを使う例は以下の通り。
+
+
+```python
+import io
+
+with io.StringIO() as f:
+    with contextlib.redirect_stdout(f):
+        print("hogehoge")
+    print(f.getvalue())
+```
+
+    hogehoge
+    
+    
+
 - ExitStack
 
-- 複数行のコンテキストマネージャ（Python 3.10以降で利用可能）
+複数のコンテキストを扱うために用意されている。stackに`enter_context`すれば、すべての終了処理が走る。
+
+
+```python
+from contextlib import contextmanager
+
+@contextmanager
+def sample_context_manager():
+    print("__enter__")
+    ret_val = 100
+
+    try:
+        yield ret_val
+    except Exception as e:
+        print("__exit__")
+        print(f"例外あり. {e}")
+        raise # 例外は再送出が必要となる
+    else:
+        print("__exit__")
+        print("正常終了")
+
+with contextlib.ExitStack() as stack:
+    hoge = stack.enter_context(sample_context_manager())
+    fuga = stack.enter_context(sample_context_manager())
+    print("ブロック内の処理")
+```
+
+    __enter__
+    __enter__
+    ブロック内の処理
+    __exit__
+    正常終了
+    __exit__
+    正常終了
+    
+
+複数コンテキストを動かす方法は、withに複数書くのでも実はできる。
+
+
+```python
+with sample_context_manager() as hoge, sample_context_manager() as fuga:
+    print("ブロック内の処理")
+```
+
+    __enter__
+    __enter__
+    ブロック内の処理
+    __exit__
+    正常終了
+    __exit__
+    正常終了
+    
+
+また、Python 3.10からは、以下のような括弧書きができるようになっている（3.9でも動くが、3.10で正式対応らしい。なので3.8では動かない）
+
+
+```python
+with (
+    sample_context_manager() as hoge
+    , sample_context_manager() as fuga
+):
+    print("ブロック内の処理")
+```
+
+    __enter__
+    __enter__
+    ブロック内の処理
+    __exit__
+    正常終了
+    __exit__
+    正常終了
+    
 
 ### 参考
 
