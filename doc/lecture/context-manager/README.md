@@ -23,7 +23,9 @@ f = open("sample.txt", "wt")
 try:
     lines = f.readlines()
     print(len(lines))
-finally:
+except Exception as e: # これが例外のみ通る
+    print(e)
+finally: # 正常終了の場合も例外終了の場合も通る
     f.close()
 ```
 
@@ -277,9 +279,10 @@ with open("log.txt", "wt") as f:
 
 ```python
 import io
+from contextlib import redirect_stdout
 
 with io.StringIO() as f:
-    with contextlib.redirect_stdout(f):
+    with redirect_stdout(f):
         print("hogehoge")
     print(f.getvalue())
 ```
@@ -295,6 +298,7 @@ with io.StringIO() as f:
 
 ```python
 from contextlib import contextmanager
+from contextlib import ExitStack
 
 @contextmanager
 def sample_context_manager():
@@ -311,9 +315,9 @@ def sample_context_manager():
         print("__exit__")
         print("正常終了")
 
-with contextlib.ExitStack() as stack:
-    hoge = stack.enter_context(sample_context_manager())
-    fuga = stack.enter_context(sample_context_manager())
+with ExitStack() as stack:
+    stack.enter_context(sample_context_manager())
+    stack.enter_context(sample_context_manager())
     print("ブロック内の処理")
 ```
 
@@ -324,6 +328,23 @@ with contextlib.ExitStack() as stack:
     正常終了
     __exit__
     正常終了
+    
+
+
+```python
+from contextlib import ExitStack
+
+files = ["log1.txt", "log2.txt"]
+
+with ExitStack() as stack:
+    f_list = []
+    for fname in files:
+        f = stack.enter_context(open(fname, "rt"))
+        f_list.append(f)
+    print("ブロック内の処理")
+```
+
+    ブロック内の処理
     
 
 複数コンテキストを動かす方法は、withに複数書くのでも実はできる。
